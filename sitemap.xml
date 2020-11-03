@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/</loc>
+  <priority>1.0</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/index.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/report.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/information.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/profile.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/contact.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/posts/news_archive.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/posts/news1.html</loc>
+  <priority>0.8</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/posts/activity_archive.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/posts/activity2.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/posts/activity1.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+<url>
+  <loc>https://nagauta-yoshizumi.github.io/posts/activity.html</loc>
+  <priority>0.7</priority>
+  <lastmod>2020-11-04T04:25:50+09:00</lastmod>
+</url>
+
+</urlset>
