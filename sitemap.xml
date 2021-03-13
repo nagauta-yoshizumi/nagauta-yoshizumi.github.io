@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T03:06:16+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T02:57:21+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/information.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T02:56:40+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/profile.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T02:57:01+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/report.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T02:55:45+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/posts/activity.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2020-11-03T19:00:30+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/posts/activity1.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2020-11-03T19:00:30+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/posts/activity2.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2020-11-03T19:00:30+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/posts/activity_archive.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2020-11-03T19:00:30+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/posts/news1.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T02:58:21+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+  <url>
+    <loc>https://nagauta-yoshizumi.github.io/posts/news_archive.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2021-03-13T03:06:03+00:00</lastmod>
+    <mobile:mobile />
+  </url>
+</urlset>
