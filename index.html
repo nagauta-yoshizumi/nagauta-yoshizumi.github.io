@@ -214,4 +214,25 @@
       <li class="menu-item current_page_item"><a href="index.html">吉住会</a></ul></nav>
     <div id="sp-block-container-1" class="sp-part-top sp-block-container">
       <p class="copyright paragraph">Copyright c 吉住会, All rights reserved.</p></div></div></footer></div>
-<script type="text/javascript" src="navigation.js"></script></body></html>
+<script type="text/javascript" src="navigation.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".menu-toggle").forEach(function(toggle){
+
+    toggle.addEventListener("click", function () {
+
+      const menu = toggle.nextElementSibling.nextElementSibling;
+      if(menu){
+        menu.classList.toggle("toggled-on");
+      }
+
+    });
+
+  });
+
+});
+</script>
+
+
+</body></html>
