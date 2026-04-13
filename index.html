@@ -214,15 +214,20 @@
       <li class="menu-item current_page_item"><a href="index.html">吉住会</a></ul></nav>
     <div id="sp-block-container-1" class="sp-part-top sp-block-container">
       <p class="copyright paragraph">Copyright c 吉住会, All rights reserved.</p></div></div></footer></div>
-<script type="text/javascript" src="navigation.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  document.querySelectorAll(".menu-toggle").forEach(function(toggle){
+<script>
+window.addEventListener("load", function () {
+
+  const toggles = document.querySelectorAll(".menu-toggle");
+
+  toggles.forEach(function(toggle){
 
     toggle.addEventListener("click", function () {
 
-      const menu = toggle.nextElementSibling.nextElementSibling;
+      // 同じnav内のulを探す
+      const nav = toggle.closest("nav");
+      const menu = nav.querySelector("ul");
+
       if(menu){
         menu.classList.toggle("toggled-on");
       }
@@ -233,6 +238,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-
 
 </body></html>
