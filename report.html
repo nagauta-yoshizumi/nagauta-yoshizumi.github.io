@@ -369,4 +369,27 @@
 <ul id="menu-mainnav">
   <li class="menu-item"><font SIZE="+1"><a href="index.html">吉住会</a></font></ul></nav>
 <div id="sp-block-container-1" class="sp-part-top sp-block-container">
-<p class="copyright paragraph"><font SIZE="+1">Copyright c 吉住会, All rights reserved.</font></p></div></div></footer></div><script type="text/javascript" src="navigation.js"></script></body></html>
+<p class="copyright paragraph"><font SIZE="+1">Copyright c 吉住会, All rights reserved.</font></p></div></div></footer></div>
+<script>
+window.addEventListener("load", function () {
+
+  const toggles = document.querySelectorAll(".menu-toggle");
+
+  toggles.forEach(function(toggle){
+
+    toggle.addEventListener("click", function () {
+
+      // 同じnav内のulを探す
+      const nav = toggle.closest("nav");
+      const menu = nav.querySelector("ul");
+
+      if(menu){
+        menu.classList.toggle("toggled-on");
+      }
+
+    });
+
+  });
+
+});
+</script>></body></html>
