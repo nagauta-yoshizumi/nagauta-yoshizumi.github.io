@@ -1,0 +1,452 @@
+@charset "UTF-8";
+/* ============================================================
+   mobile-fix.css  ―― 吉住会サイト 追加スタイルシート
+   最終更新：2026-08-16
+
+   style.css（ホームページ・ビルダーが出力する本体）の後ろで
+   読み込み、後勝ちで上書きします。
+   ビルダーが style.css を書き戻しても影響を受けにくいよう、
+   調整はできる限りこの1枚に寄せています。
+   不要になったら各HTMLの <link> を1行消せば元に戻ります。
+
+   ※ style.css 本体にも1点だけ手を入れています。
+      スマホ用レイアウトの適用範囲（メディアクエリの境界値）を
+      568px/569px → 1039px/1040px に変更。それ以外は無変更です。
+
+   目次
+     1. ヘッダー
+     2. 文字サイズ・見出しの統一
+     3. お知らせ一覧
+     4. はみ出し防止（全画面共通）
+     5. スマホ表示（1039px以下）
+     6. メニューボタン
+     7. 電話番号・メールアドレスのリンク
+   ============================================================ */
+
+/* ============================================================
+   ヘッダー
+   ・桜マークのロゴ（267x243px）を集合写真の横長バナーに差し替え
+   ・TEL／メールアドレスの行はHTML側から削除済み
+   ============================================================ */
+
+#sp-site-branding2-1 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 0 !important;
+}
+
+#sp-site-branding2-1 .site-title {
+  background-image: url(img/header-yoshizumikai.jpg) !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  aspect-ratio: 5512 / 1433;      /* 写真そのままの縦横比 */
+  float: none !important;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+#sp-site-branding2-1 .site-title a {
+  display: block;
+  height: 100%;
+  text-indent: -9999px;
+}
+
+/* キャッチコピーはバナーのすぐ下に、控えめに */
+#sp-site-branding2-1 .site-description {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 14px !important;
+  margin-bottom: 14px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* ============================================================
+   0. 文字サイズ・見出しの統一
+      もともと各ページのHTMLに <font SIZE="+1"> が直接書かれていて、
+      それが無い posts/ 配下だけ文字が小さくなっていました。
+      fontタグを全廃した代わりに、ここで全ページ共通に指定します。
+   ------------------------------------------------------------
+      ※ このサイトは html{font-size:62.5%} なので 1rem = 10px です
+   ============================================================ */
+
+/* 本文 */
+#content,
+#content p,
+#content dd,
+#content dt,
+#content li,
+#content td,
+#content div,
+#content article {
+  font-size: 1.8rem;
+  line-height: 1.9;
+}
+
+/* ページ見出し（本文と同じ大きさで埋もれていたので少し大きく）
+   ※ style.css 側に #sp-entry-content-N > article > header > .entry-title
+      という詳細度の高い指定があるため、こちらも同等以上にしています */
+#content .entry-title,
+#content > article > header > .entry-title,
+#content #sp-entry-content-1 > article > header > .entry-title,
+#content #sp-entry-content-2 > article > header > .entry-title,
+#content #sp-entry-content-3 > article > header > .entry-title,
+#content #sp-entry-content-4 > article > header > .entry-title,
+#content #sp-wp-post-list-1 > article > header > .entry-title,
+#content #sp-wp-post-list-2 > article > header > .entry-title {
+  font-size: 2.4rem;
+  line-height: 1.4;
+  margin-bottom: 0.6em;
+}
+
+/* 記事内の見出し */
+#content h3,
+#content h3 a {
+  font-size: 2.0rem;
+  line-height: 1.5;
+}
+
+#content h4,
+#content h4 a {
+  font-size: 1.9rem;
+  line-height: 1.5;
+}
+
+/* 「吉住祭りのお知らせ」など、本文中の疑似見出し */
+#content .notice-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+/* 演奏会案内ページ：公演ごとの見出し（下線付き）
+   h3「活動報告」/ h4「第六五六回研精会」と同じ体裁を、
+   まとめて1記事に入っていた各公演にも付けています。
+   区切りが分かるよう、線は h4 の 3px より細い 2px にしています。 */
+#content .event-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  line-height: 1.4;
+  color: #111111;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  margin-top: 42px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #333333;
+}
+
+/* 最初の公演見出しは上の余白を詰める */
+#content .entry-content > .event-title:first-child {
+  margin-top: 0;
+}
+
+/* 強調文（もとは 1.4〜1.5rem で本文より小さくなっていた） */
+#content b.character {
+  font-size: 1.9rem;
+}
+
+/* 段落の間隔をそろえる */
+#content .paragraph {
+  margin-top: 0;
+  margin-bottom: 1.2em;
+}
+
+/* 記事末尾の日付 */
+#content article > footer {
+  font-size: 1.5rem;
+  color: #777;
+  margin-bottom: 2.4em;
+}
+
+/* パンくず */
+#breadcrumb-list {
+  font-size: 1.5rem;
+}
+
+/* ------------------------------------------------------------
+   お知らせ一覧（トップページ）
+   日付(dt)と件名(dd)は float ＋ 負のマージンで横並びになっています。
+   1件ごとに細い区切り線を入れ、行の高さをそろえて読みやすくしました。
+   ------------------------------------------------------------ */
+
+#sp-wp-post-list-1 > dl {
+  margin-left: 0;
+  margin-right: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+#sp-wp-post-list-1 > dl > dt {
+  background-image: none;          /* 日付の前の矢印アイコンを外す */
+  width: 160px;
+  padding: 15px 10px 15px 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #777777;
+}
+
+#sp-wp-post-list-1 > dl > dd {
+  margin-left: -160px;
+  padding: 15px 5px 15px 160px;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#sp-wp-post-list-1 > dl > dd a {
+  text-decoration: none;
+}
+
+#sp-wp-post-list-1 > dl > dd a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------
+   チラシ画像の縦横比の修正
+   もともと #sp-image-10 に width:664px / height:795px が
+   固定指定され、17枚すべてが横に約18%引き伸ばされていました。
+   HTML側で class="sp-flyer" に付け替え、比率を保つようにします。
+   ------------------------------------------------------------ */
+
+#content .sp-flyer {
+  width: auto;
+  height: auto;
+  max-width: 664px;
+  max-height: none;
+  display: block;
+  margin: 1.2em 0;
+}
+
+/* ------------------------------------------------------------
+   1. 全画面共通の「はみ出し」防止
+   ------------------------------------------------------------ */
+
+html {
+  -webkit-text-size-adjust: 100%;   /* iOS横向き時の勝手な文字拡大を抑止 */
+  text-size-adjust: 100%;
+}
+
+/* 画像・動画・地図などが親幅を超えないようにする */
+img,
+video,
+iframe,
+object,
+embed {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 表が画面幅を超える場合は、その表だけ横スクロールさせる */
+table {
+  max-width: 100%;
+}
+
+/* ------------------------------------------------------------
+   2. タブレット・スマホ横向き〜スマホ縦向き（1039px 以下）
+      ※ style.css 側のブレークポイントも 1039px / 1040px に
+        統一済みです。ここは追加の保険です。
+   ------------------------------------------------------------ */
+
+@media screen and (max-width: 1039px) {
+
+  html,
+  body {
+    min-width: 0 !important;
+    max-width: 100%;
+    overflow-x: hidden;             /* 横方向の見切れ・横揺れを防止 */
+  }
+
+  #page,
+  #main,
+  #main-inner,
+  #primary,
+  #content,
+  #contenthead,
+  #masthead,
+  #masthead-inner,
+  #colophon,
+  #colophon-inner,
+  #sidebar1,
+  #sidebar2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    float: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #contenthead > a {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* トップページのメイン画像（PCでは1034px固定）*/
+  #sp-image-1 {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* 長いURL・メールアドレスで行が飛び出すのを防ぐ */
+  #content,
+  #content p,
+  #content dd,
+  #content dt,
+  #content td,
+  #content li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* スマホでは本文を小さめに（1行あたりの文字数を確保） */
+  #content,
+  #content p,
+  #content dd,
+  #content dt,
+  #content li,
+  #content td,
+  #content div,
+  #content article {
+    font-size: 1.5rem;
+    line-height: 1.8;
+  }
+
+  #content .entry-title { font-size: 1.9rem; }
+  #content h3, #content h3 a { font-size: 1.7rem; }
+  #content h4, #content h4 a { font-size: 1.6rem; }
+  #content .notice-title { font-size: 1.8rem; }
+  #content .event-title {
+    font-size: 1.7rem;
+    margin-top: 32px;
+    margin-bottom: 14px;
+  }
+  #content b.character { font-size: 1.6rem; }
+  #content article > footer { font-size: 1.3rem; }
+  #breadcrumb-list { font-size: 1.3rem; }
+  #sp-site-branding2-1 .site-description { font-size: 1.3rem; }
+
+  /* チラシ画像は画面幅いっぱいに */
+  #content .sp-flyer {
+    max-width: 100%;
+  }
+
+  /* お知らせ一覧
+     PC版は dt を左に float して日付と件名を横並びにしていますが、
+     スマホでは幅が足りないので縦積みにし、1件ずつ区切り線で分けます */
+  #sp-wp-post-list-1 > dl {
+    margin-left: 0;
+    border-top: 1px solid #e0e0e0;
+  }
+  #sp-wp-post-list-1 > dl > dt,
+  #sp-wp-post-list-1 > dl > dd {
+    float: none !important;
+    width: auto !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #sp-wp-post-list-1 > dl > dt {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+  #sp-wp-post-list-1 > dl > dd {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-top: 2px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  #sp-wp-post-list-1 > dl > dd a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   3. メニューボタン（ハンバーガー）まわり
+   ------------------------------------------------------------ */
+
+@media screen and (max-width: 1039px) {
+
+  /* ボタン本体：確実に表示し、タップ領域を44px以上確保する */
+  .sp-site-navigation.button-menu .menu-toggle {
+    display: block !important;
+    box-sizing: border-box;
+    min-height: 48px;
+    line-height: 48px;
+    padding: 0 10px !important;
+    margin: 0 !important;
+    font-size: 1.6rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+    user-select: none;
+    background-size: 28px auto;     /* ハンバーガーアイコンの大きさ */
+  }
+
+  .sp-site-navigation.button-menu .menu-toggle:active {
+    background-color: #000 !important;
+  }
+
+  /* 閉じている状態 / 開いている状態 */
+  .sp-site-navigation.button-menu > ul {
+    display: none;
+  }
+  .sp-site-navigation.button-menu > ul.toggled-on {
+    display: block !important;
+  }
+
+  /* 開いたメニューが他の要素の下に潜り込まないように */
+  #sp-site-navigation-1 {
+    position: relative;
+    z-index: 1000;
+  }
+
+  /* 各項目を横並び解除してフル幅に */
+  .sp-site-navigation.horizontal > ul > li,
+  .sp-site-navigation.button-menu > ul > li {
+    float: none !important;
+    width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  /* リンクのタップ領域を広く */
+  .sp-site-navigation.button-menu > ul > li > a {
+    display: block !important;
+    box-sizing: border-box;
+    min-height: 48px;
+    line-height: 1.4;
+    padding: 14px 12px !important;
+    font-size: 1.6rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   4. 電話番号・メールアドレスのリンク化に伴う見た目
+      （site-mobile.js が付与する class）
+   ------------------------------------------------------------ */
+
+a.auto-tel,
+a.auto-mail {
+  color: inherit;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1039px) {
+  a.auto-tel,
+  a.auto-mail {
+    display: inline-block;
+    padding: 2px 0;
+  }
+  a.auto-mail {
+    white-space: normal;            /* メールは長いので折り返し可 */
+  }
+}
