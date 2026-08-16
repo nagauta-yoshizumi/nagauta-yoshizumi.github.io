@@ -572,3 +572,140 @@ a.auto-mail {
     white-space: normal;            /* メールは長いので折り返し可 */
   }
 }
+
+
+/* ------------------------------------------------------------
+   5. 文章の見直しにともなって追加した部品
+      （2026年8月 文章リニューアル分）
+   ------------------------------------------------------------ */
+
+/* ページ内の節見出し（「研精会譜のこと」「これまでの公演」など）
+   トップページの「お知らせ」（#sp-wp-post-list-1 > h2）と同じ体裁です。 */
+/* style.css 側に .page-toppage#content #page-content > h2 などの詳細度の高い
+   指定（緑色・下線1px）があるため、同じ強さのセレクタで上書きします。 */
+.page-contact#content #page-content > .section-title,
+.page-information#content #page-content > .section-title,
+.page-profile#content #page-content > .section-title,
+.page-report#content #page-content > .section-title,
+.page-toppage#content #page-content > .section-title,
+#content .sp-wp-post-list > .section-title,
+#content .section-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #111111;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333333;
+}
+
+.page-contact#content #page-content > .section-title:first-child,
+.page-information#content #page-content > .section-title:first-child,
+.page-profile#content #page-content > .section-title:first-child,
+.page-report#content #page-content > .section-title:first-child,
+.page-toppage#content #page-content > .section-title:first-child,
+#content .sp-wp-post-list > .section-title:first-child,
+#content .section-title:first-child {
+  margin-top: 0;
+}
+
+/* 演奏会案内：1公演のまとまり */
+#content .event {
+  margin-top: 42px;
+}
+
+#content .event > .event-title {
+  margin-top: 0;
+}
+
+/* 日付と会場（1行目） */
+#content .event-meta {
+  margin: 0 0 0.4em;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+/* 曲目・入場料 */
+#content .event-detail {
+  margin: 0 0 1.0em;
+  line-height: 1.8;
+}
+
+/* 連絡先のまとまり（枠で囲って本文と区別する） */
+#content .contact-box {
+  margin: 1.8em 0;
+  padding: 18px 20px;
+  border: 1px solid #cccccc;
+  background: #fafafa;
+}
+
+#content .contact-box-title {
+  margin: 0 0 0.5em;
+  font-weight: bold;
+}
+
+#content .contact-box-body {
+  margin: 0;
+  line-height: 1.9;
+}
+
+/* よくいただくご質問 */
+#content .faq {
+  margin: 1.2em 0 1.8em;
+}
+
+#content .faq-q {
+  margin: 1.2em 0 0.3em;
+  font-weight: bold;
+}
+
+#content .faq-q:first-child {
+  margin-top: 0;
+}
+
+#content .faq-q::before {
+  content: "・";
+}
+
+#content .faq-a {
+  margin: 0 0 0 1em;
+  line-height: 1.9;
+}
+
+/* お問い合わせのご用件一覧 */
+#content .purpose-list {
+  margin: 0.8em 0 1.6em 1.4em;
+  padding: 0;
+  line-height: 2.0;
+}
+
+#content .purpose-list li {
+  list-style: disc;
+}
+
+@media screen and (max-width: 1039px) {
+  .page-contact#content #page-content > .section-title,
+  .page-information#content #page-content > .section-title,
+  .page-profile#content #page-content > .section-title,
+  .page-report#content #page-content > .section-title,
+  .page-toppage#content #page-content > .section-title,
+  #content .sp-wp-post-list > .section-title,
+  #content .section-title {
+    font-size: 1.8rem;
+    margin-top: 36px;
+  }
+
+  #content .event {
+    margin-top: 32px;
+  }
+
+  #content .contact-box {
+    padding: 14px 16px;
+  }
+
+  #content .faq-a {
+    margin-left: 0.8em;
+  }
+}
