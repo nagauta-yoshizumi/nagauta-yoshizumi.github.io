@@ -105,17 +105,24 @@
   margin-bottom: 0.6em;
 }
 
-/* 記事内の見出し */
+/* 記事内の見出し（トップページの「お知らせ」など）
+   見出しの階層は2段に統一しています。
+     ・ページ見出し h1.entry-title … 2.4rem／下線3px
+     ・その下の見出し h3 h4 .event-title … 1.9rem／下線2px
+*/
 #content h3,
-#content h3 a {
-  font-size: 2.0rem;
-  line-height: 1.5;
-}
-
+#content h3 a,
 #content h4,
 #content h4 a {
   font-size: 1.9rem;
   line-height: 1.5;
+}
+
+#content h3,
+#content h4 {
+  padding-top: 8px;
+  padding-bottom: 12px;
+  border-bottom-width: 2px;
 }
 
 /* 「吉住祭りのお知らせ」など、本文中の疑似見出し */
@@ -167,6 +174,37 @@
 /* パンくず */
 #breadcrumb-list {
   font-size: 1.5rem;
+}
+
+/* ------------------------------------------------------------
+   見出しレベルの整理にともなう見た目の補正
+
+   もともと1ページに h1 が4つ（メニューボタン×2・サイトタイトル・
+   ページ見出し）ありました。見出しは文書の目次にあたるものなので、
+   ページ見出しだけを h1 に残し、他は div / p に変更しています。
+   タグを変えると既定のスタイル（太字など）が外れるため、
+   ここで元の見た目に戻しています。
+   ------------------------------------------------------------ */
+
+/* メニューボタン（h1 → div） */
+.sp-site-navigation .menu-toggle {
+  font-weight: bold;
+}
+
+/* お知らせの見出し（h3 → h2）
+   タグを変えると style.css 側の #sp-wp-post-list-1 > h3 が
+   効かなくなるため、これまでと同じ体裁をここで指定し直します */
+#sp-wp-post-list-1 > h2 {
+  font-size: 1.9rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #111111;
+  background-color: #ffffff;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #333333;
 }
 
 /* ------------------------------------------------------------
@@ -317,9 +355,10 @@ table {
   }
 
   #content .entry-title { font-size: 1.9rem; }
-  #content h3, #content h3 a { font-size: 1.7rem; }
-  #content h4, #content h4 a { font-size: 1.6rem; }
+  #content h3, #content h3 a,
+  #content h4, #content h4 a { font-size: 1.7rem; }
   #content .notice-title { font-size: 1.8rem; }
+  #sp-wp-post-list-1 > h2 { font-size: 1.7rem; }
   #content .event-title {
     font-size: 1.7rem;
     margin-top: 32px;
@@ -333,6 +372,21 @@ table {
   /* チラシ画像は画面幅いっぱいに */
   #content .sp-flyer {
     max-width: 100%;
+  }
+
+  /* 家元の肖像（吉住流の代々家元）
+     PC用の寸法指定がPC側のメディアクエリの中にしかないため、
+     スマホでは画像そのままの大きさ（241〜330px）でバラバラに、
+     しかも float が効かず左寄せになっていました。
+     幅を150pxにそろえ、中央に配置します。
+     肖像は全身像と胸像が混在しているので、切り抜かず
+     高さは元の縦横比のままにしています。 */
+  #content .sp-portrait {
+    display: block;
+    float: none !important;
+    width: 150px !important;
+    height: auto !important;
+    margin: 0 auto 16px !important;
   }
 
   /* お知らせ一覧
@@ -375,19 +429,66 @@ table {
 
 @media screen and (max-width: 1039px) {
 
-  /* ボタン本体：確実に表示し、タップ領域を44px以上確保する */
+  /* ボタン本体
+     もとは 69x18px の画像（三本線＋小さな "menu" の文字）を
+     背景に敷いていたため、拡大するとぼやける作りでした。
+     画像をやめ、三本線はCSSで描き、ラベルは実際の文字にしています。
+     これで何倍に拡大しても輪郭がぼやけません。 */
   .sp-site-navigation.button-menu .menu-toggle {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     box-sizing: border-box;
-    min-height: 48px;
-    line-height: 48px;
-    padding: 0 10px !important;
+    min-height: 56px;
+    line-height: 1;
+    padding: 0 16px !important;
     margin: 0 !important;
-    font-size: 1.6rem;
+    background-image: none !important;   /* 画像アイコンを使わない */
+    text-indent: 0 !important;           /* 画面外に飛ばしていた文字を戻す */
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    color: #ffffff;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
     user-select: none;
-    background-size: 28px auto;     /* ハンバーガーアイコンの大きさ */
+  }
+
+  /* style.css 側の id 指定（詳細度が高い）を打ち消す。
+     display は触らない ―― フッターのボタンは非表示のままにするため */
+  #sp-site-navigation-1 .menu-toggle,
+  #sp-site-navigation-2 .menu-toggle {
+    background-image: none !important;
+    text-indent: 0 !important;
+    padding: 0 16px !important;
+  }
+
+  /* 三本線のアイコン（CSSで描画） */
+  .sp-site-navigation.button-menu .menu-toggle::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 26px;
+    height: 20px;
+    background-image:
+      linear-gradient(#ffffff, #ffffff),
+      linear-gradient(#ffffff, #ffffff),
+      linear-gradient(#ffffff, #ffffff);
+    background-size: 100% 3px;
+    background-position: 0 0, 0 50%, 0 100%;
+    background-repeat: no-repeat;
+    transition: transform 0.15s ease;
+  }
+
+  /* 開いているときは × 印に切り替え（site-mobile.js が付ける属性を利用） */
+  .sp-site-navigation.button-menu .menu-toggle[aria-expanded="true"]::before {
+    height: 22px;
+    background-image:
+      linear-gradient(#ffffff, #ffffff),
+      linear-gradient(#ffffff, #ffffff);
+    background-size: 100% 3px, 3px 100%;
+    background-position: 50% 50%, 50% 50%;
+    transform: rotate(45deg);
   }
 
   .sp-site-navigation.button-menu .menu-toggle:active {
@@ -425,6 +526,27 @@ table {
     line-height: 1.4;
     padding: 14px 12px !important;
     font-size: 1.6rem;
+  }
+
+  /* ------------------------------------------------------------
+     フッター
+     「吉住会」のリンク（背景 #262626）とコピーライト（背景 #333333）の
+     間に、フッターの地色 #f8f8f8 が約22px覗いて白い帯に見えていました。
+     内訳は #sp-block-container-1 の上パディング15px と、
+     コピーライトの上マージン6.5px です。
+     隙間をなくし、リンクの背景もコピーライトと同じ色にそろえて、
+     ひと続きの帯に見えるようにします。
+     ------------------------------------------------------------ */
+  #sp-site-navigation-2 > ul > li > a {
+    background-color: #333333;
+  }
+
+  #colophon #sp-block-container-1 {
+    padding-top: 0;
+  }
+
+  #colophon .copyright {
+    margin-top: 0;
   }
 }
 
